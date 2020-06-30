@@ -1,0 +1,22 @@
+{
+  "name": "crate",
+  "version": "1.0.0",
+  "description": "![Crate](https://raw.githubusercontent.com/atulmy/atulmy.github.io/master/images/crate/hero-with-link.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javier-aguilar/Crate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javier-aguilar/Crate/issues"
+  },
+  "engines": {
+    "node": "12.18.1"
+  },
+  "homepage": "https://github.com/javier-aguilar/Crate#readme"
+}
