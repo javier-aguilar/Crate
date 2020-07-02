@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd code && npm start",
-    "heroku-prebuild": "npm install --dev",
-    "heroku-postbuild": "cd code && npm install && npm build && cd api && npm install"
+    "heroku-postbuild": "cd code && npm install && npm build && cd api && npm install && cd ../web && npm install"
   },
   "repository": {
     "type": "git",
