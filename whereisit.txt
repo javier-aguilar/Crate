@@ -1,0 +1,41 @@
+What’s What and What’s Where and What’s Important
+
+FE:
+Profile Page - code/web/src/modules/user/Profile.js
+	(Need) Edit Page - code/web/src/modules/user/Edit.js
+	(Need) Items Page - code/web/src/modules/user/Items.js
+
+Routes for users live in - code/web/src/setup/routes/user.js
+	This is probably where we’ll specify a new route to user/profile/edit
+
+*Maddy - Might need state file access for users
+
+
+BE:
+Migrations: code/api/src/migrations/1-user.js
+	Might need to update a migration for products and crates to join them together??
+
+User ‘Model’: code/api/src/modules/user/model.js
+	Will need to update this model and it’s ‘model methods’ / ‘query methods’ located at:
+	code/api/src/modules/user/mutations.js
+	code/api/src/modules/user/query.js
+	code/api/src/modules/user/resolvers.js
+
+code/api/src/setup/schema/ seems to be a place we’ll need to make changes if we were to add another DB table
+
+
+Notes:
+	code/web/src/modules/user/api/actions.js
+		This file contains import cookie.  Maybe this is where the user ID will live?
+		js-cookie is a package that is installed in code/web/package.json
+		There is also a function called ‘setUser’ which might be important for knowing what profile we’re looking at
+		Finally, there’s stuff about ”User Authentication” here code/web/src/setup/client/index.js
+
+	when I created myself as a user my role was default set to [null] - weird
+
+	when you subscribe to a crate it adds that to the DB
+
+	We’re supposed to be tracking items shipped and kept, but items don’t seem to have any relation to anything… seems like they should belong to a crate?
+
+  * Jenny - Should we be creating a new user and adding product to the profile?  Should we be using seed/existing user data?
+    Seed file is called seeders, located in: api/src/seeders

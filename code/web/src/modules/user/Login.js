@@ -72,7 +72,7 @@ class Login extends Component {
         }, 5000)
       })
   }
-
+  // HTML is rendered below:
   render() {
     const { isLoading, error } = this.props.user
 

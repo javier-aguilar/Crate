@@ -1,6 +1,7 @@
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'
+// connect turns our component into a conatiner that can access our store
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
@@ -15,6 +16,7 @@ import { grey, grey2 } from '../../ui/common/colors'
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
+// This is the actual page with HTML that will be generated
 // Component
 const Profile = (props) => (
   <div>
@@ -35,7 +37,7 @@ const Profile = (props) => (
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
 
         <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
-
+        // button with a link to the subscriptions path
         <Link to={userRoutes.subscriptions.path}>
           <Button theme="primary">Subscriptions</Button>
         </Link>

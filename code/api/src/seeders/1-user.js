@@ -5,6 +5,7 @@ const config = require('../config/server.json');
 const params = require('../config/params.json');
 
 module.exports = {
+  // seed data to prefill DB with info
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('users', [
       {
@@ -25,7 +26,7 @@ module.exports = {
       }
     ])
   },
-
+  // down will remove the seed data
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('users', null, {});
   }

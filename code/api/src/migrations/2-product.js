@@ -1,4 +1,5 @@
 module.exports = {
+  // Shouldn't need to do too much here, might need to update if we need to link products with crates
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('products', {
       id: {

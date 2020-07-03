@@ -1,4 +1,6 @@
 module.exports = {
+  // Up method is what happens when you run your migrations
+  // We will need to write new migrations here to add attributes to the user model
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {
       id: {
@@ -29,6 +31,7 @@ module.exports = {
       }
     });
   },
+  // Down method will undo things
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users');
   }

@@ -11,6 +11,7 @@ import * as subscription from '../modules/subscription/api/state'
 import * as crate from '../modules/crate/api/state'
 
 // App Reducer
+// Each app has its own reducer and they are listed here.
 const appReducer = combineReducers({
   common,
   user,
@@ -20,6 +21,8 @@ const appReducer = combineReducers({
 })
 
 // Root Reducer
+// takes in the state and action.  Do stuff if its already set.
+// otherwise, run appReducer
 export const rootReducer = (state, action) => {
   if (action.type === 'RESET') {
     state = undefined
@@ -36,6 +39,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Store
+// createStore method takes in rootReducer method.  Needs initial state.
 export const store = createStore(
   rootReducer,
   initialState,

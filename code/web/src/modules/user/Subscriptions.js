@@ -19,6 +19,8 @@ import SubscriptionItem from '../subscription/Item'
 class Subscriptions extends PureComponent {
 
   // Runs on server only for SSR
+
+  // immediately fetch the users subscriptions upon rendering the subscription PureComponent
   static fetchData({ store }) {
     return store.dispatch(getListByUser())
   }
@@ -28,6 +30,7 @@ class Subscriptions extends PureComponent {
     this.props.getListByUser()
   }
 
+  // Here's the HTML that will be rendered on the page
   render() {
     return (
       <div>
@@ -81,4 +84,5 @@ function subscriptionsState(state) {
   }
 }
 
+// all of this connect stuff allows for it to interact with state and DB and not just be static
 export default connect(subscriptionsState, { getListByUser })(Subscriptions)

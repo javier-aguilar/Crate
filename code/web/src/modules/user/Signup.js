@@ -1,6 +1,7 @@
 // Imports
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+// allows us to talk between our component and our redux store
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
@@ -39,6 +40,8 @@ class Signup extends Component {
     }
   }
 
+
+// when an input change is made, it immediately updates the state of the SignUp component
   onChange = (event) => {
     let user = this.state.user
     user[event.target.name] = event.target.value
@@ -48,6 +51,8 @@ class Signup extends Component {
     })
   }
 
+// when the user completes the form, the app starts to load
+// begins to save the user information
   onSubmit = (event) => {
     event.preventDefault()
 
@@ -55,6 +60,7 @@ class Signup extends Component {
       isLoading: true
     })
 
+// displays this message on the screen
     this.props.messageShow('Signing you up, please wait...')
 
     this.props.register(this.state.user)
@@ -63,6 +69,7 @@ class Signup extends Component {
           isLoading: false
         })
 
+        // Displays sign in errors if they exist, otherwise displays successful login message
         if (response.data.errors && response.data.errors.length > 0) {
           this.props.messageShow(response.data.errors[0].message)
         } else {
@@ -71,6 +78,8 @@ class Signup extends Component {
           this.props.history.push(userRoutes.login.path)
         }
       })
+
+      // shows errors that get 'caught'
       .catch(error => {
         this.props.messageShow('There was some error signing you up. Please try again.')
 
@@ -86,6 +95,7 @@ class Signup extends Component {
       })
   }
 
+  // HTML rendered below here
   render() {
     return (
       <Grid gutter={true} alignCenter={true} style={{ padding: '2em' }}>
@@ -190,4 +200,6 @@ Signup.propTypes = {
   messageHide: PropTypes.func.isRequired
 }
 
+// this allows the component to connect with the redux store
+// { register, messageShow, messageHide } is coming from the actions file (line 22)
 export default connect(null, { register, messageShow, messageHide })(withRouter(Signup))
