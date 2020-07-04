@@ -169,10 +169,14 @@ Login.propTypes = {
 }
 
 // Component State
+// MR - SETS Login Components STATE
 function loginState(state) {
   return {
     user: state.user
   }
 }
 
+// MR - connect(mapStateToProps, mapDispatchToProps)(Component)
 export default connect(loginState, { login, messageShow, messageHide })(withRouter(Login))
+
+// MR (from Stack Overflow) - withRouter() is a higher order component that will pass closest route's match , current location , and history props to the wrapped component whenever it renders.

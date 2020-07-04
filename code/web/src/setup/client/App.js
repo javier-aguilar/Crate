@@ -14,6 +14,7 @@ const App = () => (
       {Object.values(routes).map((route, index) => (
         route.auth
           ? <RoutePrivate {...route} key={index} path={typeof route.path === 'function' ? route.path() : route.path}/>
+          // MR - {...route} IS PASSING THE ENTIRE OBJECT FOR EX: {path: '/user/login', component: Login}
           : <Route {...route} key={index} path={typeof route.path === 'function' ? route.path() : route.path}/>
       ))}
 

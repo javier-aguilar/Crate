@@ -79,9 +79,10 @@ export default function (app) {
             </StaticRouter>
           </Provider>
         )
-
+        // MR - IF context VARIABLE HAS BEEN UPDATED WITH A url PROPERTY KEY AND VALUE, THEN REDIRECT TO THAT URL
         if (context.url) {
           response.redirect(context.url)
+          // MR - IF context VARIABLE DOES NOT HAVE A url PROPERTY, THEN DISPATCH THE ACTION WITH THE 'TYPE' CASE of 'RESET'
         } else {
           // Get Meta header tags
           const helmet = Helmet.renderStatic()

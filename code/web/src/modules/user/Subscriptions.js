@@ -19,6 +19,7 @@ import SubscriptionItem from '../subscription/Item'
 class Subscriptions extends PureComponent {
 
   // Runs on server only for SSR
+  // IMMEDIATELY FETCH THE USERS SUBSCRIPTIONS UPON RENDERING THE SUBSCRIPTION - PureComponent?
   static fetchData({ store }) {
     return store.dispatch(getListByUser())
   }

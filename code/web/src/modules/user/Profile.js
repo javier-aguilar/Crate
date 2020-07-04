@@ -1,11 +1,16 @@
 // Imports
 import React from 'react'
+// CHECKING PROPS DATA TYPES
 import PropTypes from 'prop-types'
+// USED WHEN WE NEED TO CONNECT TO THE STORE
 import { connect } from 'react-redux'
+// MANAGES CHANGES TO THE DOCUMENT HEAD, IN: PLAIN HTML OUT: PLAIN HTML
 import { Helmet } from 'react-helmet'
+// ALLOWS USERS TO NAVIGATE AROUND THE APPLICATION
 import { Link } from 'react-router-dom'
 
 // UI Imports
+// HANDLES THE APPLICATIONS STYLING
 import { Grid, GridCell } from '../../ui/grid'
 import { H3, H4 } from '../../ui/typography'
 import Button from '../../ui/button'

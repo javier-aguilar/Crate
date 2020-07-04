@@ -11,17 +11,25 @@ export const userInitialState = {
 }
 
 // State
+// MR - THE action ARGUMENT IS COMING IN FROM THE USER ACTIONS FILE SPECIFIC TO ITS actionCreator
+// MR - REDUCER THAT CONTROLS THE USER PIECE OF STORE, WHICH IS THEN COMBINED TOGETHER WITH THE OTHER COMPONENTS REDUCERS INTO THE 'rootReducer' WHICH WE USE TO CREATE OUR APPLICATIONS GLOBAL STORE
+// MR - TAKES IN: INITIAL/DEFAULT STATE VALUE & THE ACTION SENT BY THE actionCreator via THE Dispatch FUNCTION
 export default (state = userInitialState, action) => {
+
+  // MR - switch RUNS THE CASE BASED ON THE VALUE OF OUR action objects's TYPE PROPERTY
   switch (action.type) {
     case SET_USER:
       return {
+        // MR - THE DEFAULT STATE SET IN THE PARAMATER AS userInitialState TO THE rootReducer IN store.js FILE
         ...state,
+        // MR - isAuthenticated BECOMES THE OPOSITE OF ITS INITIAL STATE VALUE, SO 'TRUE'
         isAuthenticated: !isEmpty(action.user),
         details: action.user,
       }
 
     case LOGIN_REQUEST:
       return {
+        // MR - THE DEFAULT STATE SENT TO THE rootReducer IN store.js FILE
         ...state,
         error: null,
         isLoading: action.isLoading
@@ -29,6 +37,7 @@ export default (state = userInitialState, action) => {
 
     case LOGIN_RESPONSE:
       return {
+        // MR - THE DEFAULT STATE SENT TO THE rootReducer IN store.js FILE
         ...state,
         error: action.error,
         isLoading: false
@@ -36,6 +45,7 @@ export default (state = userInitialState, action) => {
 
     case LOGOUT:
       return {
+        // MR - THE DEFAULT STATE SENT TO THE rootReducer IN store.js FILE
         ...state,
         error: null,
         isLoading: false,
@@ -43,6 +53,7 @@ export default (state = userInitialState, action) => {
         details: null
       }
 
+    // MR - IF NO CASE IS MATCHED, THEN THIS REDUCER RETURNS THE DEFAULT STATE, WHICH IS SENT TO THE rootReducer IN store.js FILE
     default:
       return state
   }

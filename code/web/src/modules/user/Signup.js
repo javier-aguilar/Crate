@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
+// MANAGES CHANGES TO THE DOCUMENT HEAD, IN: PLAIN HTML OUT: PLAIN HTML
 import { Helmet } from 'react-helmet'
 
 // UI Imports
@@ -39,6 +40,7 @@ class Signup extends Component {
     }
   }
 
+  // MR - onChange OF THE INPUT WE TAKE THE EVENT VALUE AND UPDATE THE STATE OF OUR USER
   onChange = (event) => {
     let user = this.state.user
     user[event.target.name] = event.target.value
@@ -48,13 +50,14 @@ class Signup extends Component {
     })
   }
 
+  // MR - WHEN USER SUBMITS THEIR SIGNUP FORM onClick, THE STATE IS SET AND FUNCTIONS ARE RUN FROM THE STORE
   onSubmit = (event) => {
     event.preventDefault()
 
     this.setState({
       isLoading: true
     })
-
+    // DISPLAY
     this.props.messageShow('Signing you up, please wait...')
 
     this.props.register(this.state.user)
@@ -190,4 +193,6 @@ Signup.propTypes = {
   messageHide: PropTypes.func.isRequired
 }
 
+//
+//
 export default connect(null, { register, messageShow, messageHide })(withRouter(Signup))
