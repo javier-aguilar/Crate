@@ -10,21 +10,22 @@ export default {
     path: '/user/login',
     component: Login
   },
-
+// route to the login page
   signup: {
     path: '/user/signup',
     component: Signup
   },
-
+// route to signup page
   profile: {
     path: '/user/profile',
     component: Profile,
     auth: true
   },
-
+// route to user profile
   subscriptions: {
     path: '/user/subscriptions',
     component: Subscriptions,
     auth: true
   }
 }
+// route to user subscriptions

@@ -3,6 +3,7 @@
 // User
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {
+    // defining a user with certain attributes.
     name: {
       type: DataTypes.STRING
     },
@@ -19,6 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.hasMany(models.Subscription)
+    // user has many relationship with subscriptions.
   }
 
   return User

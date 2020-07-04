@@ -5,7 +5,7 @@ import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 const UserType = new GraphQLObjectType({
   name: 'user',
   description: 'User type',
-
+// all the fields that can be returned in a GraphQL query for a user type.
   fields: () => ({
     id: { type: GraphQLInt },
     name: { type: GraphQLString },
@@ -21,7 +21,7 @@ const UserType = new GraphQLObjectType({
 const UserLoginType = new GraphQLObjectType({
   name: 'userAuth',
   description: 'User Authentication Type',
-
+// identifying an authenticated user
   fields: () => ({
     user: { type: UserType },
     token: { type: GraphQLString }
@@ -32,7 +32,7 @@ const UserLoginType = new GraphQLObjectType({
 const UserGenderType = new GraphQLObjectType({
   name: 'userGender',
   description: 'User Gender Type',
-
+// querying by users gender
   fields: () => ({
     id: { type: GraphQLInt },
     name: { type: GraphQLString }

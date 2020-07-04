@@ -37,7 +37,7 @@ class Login extends Component {
 
     // Function bindings
   }
-
+// listening for a change
   onChange = (event) => {
     let user = this.state.user
     user[event.target.name] = event.target.value
@@ -46,7 +46,7 @@ class Login extends Component {
       user
     })
   }
-
+// listening for a submit
   onSubmit = (event) => {
     event.preventDefault()
 

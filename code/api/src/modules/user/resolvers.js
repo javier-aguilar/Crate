@@ -26,10 +26,10 @@ export async function create(parentValue, { name, email, password }) {
     throw new Error(`The email ${ email } is already registered. Please try to login.`)
   }
 }
-
+// check if an email is already in use, if not, set a password for that email. if it already exists, render error message.
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
-
+// logging in as an existing user. if the email does not exist, render error message to sign up. if it exists, enter password. if password incorrect, render error.
   if (!user) {
     // User does not exists
     throw new Error(`We do not have any user registered with ${ email } email address. Please signup.`)
@@ -59,21 +59,25 @@ export async function login(parentValue, { email, password }) {
 }
 
 // Get by ID
+// finding a user by ID. Called in query.js
 export async function getById(parentValue, { id }) {
   return await models.User.findOne({ where: { id } })
 }
 
 // Get all
+// find all users. Called in query.js
 export async function getAll() {
   return await models.User.findAll()
 }
 
 // Delete
+// delete a user by ID.
 export async function remove(parentValue, { id }) {
   return await models.User.destroy({ where: { id } })
 }
 
 // User genders
+// find user gender. Called in query.js
 export async function getGenders() {
   return Object.values(params.user.gender)
 }

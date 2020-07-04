@@ -7,6 +7,7 @@ import { create, remove } from './resolvers'
 
 // Create
 export const userSignup = {
+  // creating a user with certain attributes
   type: UserType,
   args: {
     name: {
@@ -29,6 +30,7 @@ export const userSignup = {
 
 // Remove
 export const userRemove = {
+  // remove a user
   type: UserType,
   args: {
     id: {

@@ -5,6 +5,7 @@ const config = require('../config/server.json');
 const params = require('../config/params.json');
 
 module.exports = {
+  // up: seeds with given info
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('users', [
       {
@@ -25,7 +26,7 @@ module.exports = {
       }
     ])
   },
-
+// down: deletes users that were seeded.
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('users', null, {});
   }
