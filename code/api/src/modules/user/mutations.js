@@ -5,7 +5,7 @@ import { GraphQLString, GraphQLInt } from 'graphql'
 import { UserType } from './types'
 import { create, remove } from './resolvers'
 
-// Create
+// Create user
 export const userSignup = {
   type: UserType,
   args: {
@@ -27,7 +27,7 @@ export const userSignup = {
   resolve: create
 }
 
-// Remove
+// Remove user
 export const userRemove = {
   type: UserType,
   args: {

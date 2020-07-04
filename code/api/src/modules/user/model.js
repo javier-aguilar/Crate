@@ -1,6 +1,6 @@
 'use strict'
 
-// User
+// User attributes
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {
     name: {
@@ -17,6 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
+  // User relationships
   User.associate = function(models) {
     User.hasMany(models.Subscription)
   }
