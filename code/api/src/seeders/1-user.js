@@ -5,6 +5,8 @@ const config = require('../config/server.json');
 const params = require('../config/params.json');
 
 module.exports = {
+  
+  // UP - DOES THESE THINGS WHEN MIGRATION IS RUN
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('users', [
       {
@@ -26,6 +28,7 @@ module.exports = {
     ])
   },
 
+  // DOWN - DELETES USERS THAT WERE SEEDED
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('users', null, {});
   }

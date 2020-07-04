@@ -1,5 +1,8 @@
 // Imports
+// GraphQL RUNNING FROM THE EXPRESS SERVER
+// TESTS OR CHECKS THAT WE ARE PRODUCING THE CORRECT DATA
 import { GraphQLString, GraphQLInt } from 'graphql'
+
 
 // App Imports
 import { UserType } from './types'
@@ -7,6 +10,7 @@ import { create, remove } from './resolvers'
 
 // Create
 export const userSignup = {
+  // CREATING A USER WITH CERTAIN ATTRIBUTES
   type: UserType,
   args: {
     name: {
@@ -29,6 +33,9 @@ export const userSignup = {
 
 // Remove
 export const userRemove = {
+  // BASIC CRUD FUNCTIONALITY
+  // REMOVE A USER
+  // LOOK AT ./RESOLVERS FILE
   type: UserType,
   args: {
     id: {
