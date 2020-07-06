@@ -10,6 +10,7 @@ import { routeApi } from '../../../setup/routes'
 export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
+export const UPDATE_USER = 'AUTH/UPDATE_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
 
 // Actions
@@ -23,6 +24,15 @@ export function setUser(token, user) {
   }
 
   return { type: SET_USER, user }
+}
+
+export function updateUser(user) {
+  return dispatch => {
+    dispatch({
+      type: SET_USER,
+      user
+    })
+  }
 }
 
 // Login a user using credentials
