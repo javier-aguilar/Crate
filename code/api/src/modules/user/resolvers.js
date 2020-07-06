@@ -79,13 +79,14 @@ export async function getGenders() {
 }
 
 // Update user
-export async function update(parentValue, { id, name, email, address, description }) {
+export async function update(parentValue, { id, name, email, address, description, image }) {
   await models.User.update(
     {
       name,
       email,
       address,
-      description
+      description,
+      image
     },
     { where: { id } }
   );
