@@ -30,6 +30,10 @@ const Profile = (props) => (
       </GridCell>
     </Grid>
 
+    {/* This grid will access props and display user data accordingly */}
+
+    {/* Where is Profile being instanciated? */}
+
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
@@ -46,6 +50,10 @@ const Profile = (props) => (
   </div>
 )
 
+// add an edit profile button to this page. This button will have a link that routes to the edit profile page in the pages directory. Once I figure out where this profile component is first created then I will know where I can create the edit profile page. I will also need to add an object to the user routes that has the same structure as the current objects.
+
+//ex. Link <Link to={'/user/edit'} />
+
 // Component Properties
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
@@ -59,4 +67,6 @@ function profileState(state) {
   }
 }
 
+
+//this allows the component to connect with the redux store
 export default connect(profileState, { logout })(Profile)
