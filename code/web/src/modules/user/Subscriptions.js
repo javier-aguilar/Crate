@@ -1,4 +1,6 @@
 // Imports
+
+//PureComponent handles the shouldComponentUpdate method
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -19,11 +21,15 @@ import SubscriptionItem from '../subscription/Item'
 class Subscriptions extends PureComponent {
 
   // Runs on server only for SSR
+
+  //immediately fetch the users subscriptions upon rendering the subscription PureComponent
   static fetchData({ store }) {
     return store.dispatch(getListByUser())
   }
 
   // Runs on client only
+
+  //I have no idea why this is looking for the contructor's props. There is no constructor. needs further review
   componentDidMount() {
     this.props.getListByUser()
   }
@@ -50,6 +56,7 @@ class Subscriptions extends PureComponent {
         {/* Product list */}
         <Grid>
           <GridCell>
+          {/* Show the product list only if the app is done loading */}
             {
               this.props.subscriptions.isLoading
                 ? <Loading/>
@@ -81,4 +88,5 @@ function subscriptionsState(state) {
   }
 }
 
+//this allows the component to connect with the redux store
 export default connect(subscriptionsState, { getListByUser })(Subscriptions)
