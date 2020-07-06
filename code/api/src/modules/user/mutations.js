@@ -7,6 +7,7 @@ import { create, remove } from './resolvers'
 
 // Create
 export const userSignup = {
+  //creating a user with certain attributes
   type: UserType,
   args: {
     name: {
