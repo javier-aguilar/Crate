@@ -26,6 +26,8 @@ export function setUser(token, user) {
 }
 
 // Login a user using credentials
+
+//sends a dispatch to the reducer that handles login requests 
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
     dispatch({
@@ -73,6 +75,8 @@ export function loginSetUserLocalStorageAndCookie(token, user) {
   window.localStorage.setItem('user', JSON.stringify(user))
 
   // Set cookie for SSR
+
+  //SSR- Server-side rendering
   cookie.set('auth', { token, user }, { path: '/' })
 }
 
@@ -88,6 +92,7 @@ export function register(userDetails) {
 }
 
 // Log out user and remove token from localStorage
+
 export function logout() {
   return dispatch => {
     logoutUnsetUserLocalStorageAndCookie()
