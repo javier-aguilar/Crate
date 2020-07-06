@@ -38,6 +38,8 @@ class Login extends Component {
     // Function bindings
   }
 
+
+//update user state based on input change
   onChange = (event) => {
     let user = this.state.user
     user[event.target.name] = event.target.value
@@ -141,6 +143,7 @@ class Login extends Component {
 
             <div style={{ marginTop: '2em' }}>
               {/* Signup link */}
+              {/* Links to the user signup path */}
               <Link to={userRoutes.signup.path}>
                 <Button type="button" style={{ marginRight: '0.5em' }}>Signup</Button>
               </Link>
@@ -175,4 +178,5 @@ function loginState(state) {
   }
 }
 
+//this allows the component to connect with the redux store
 export default connect(loginState, { login, messageShow, messageHide })(withRouter(Login))
