@@ -17,6 +17,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     address: {
       type: DataTypes.STRING
+    },
+    description: {
+      type: DataTypes.TEXT
     }
   })
 
