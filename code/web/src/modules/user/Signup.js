@@ -39,6 +39,8 @@ class Signup extends Component {
     }
   }
 
+
+//when an input change is made, it immediately updates the state of the SignUp component 
   onChange = (event) => {
     let user = this.state.user
     user[event.target.name] = event.target.value
@@ -48,6 +50,9 @@ class Signup extends Component {
     })
   }
 
+
+//When the user completes the form, the app starts to load
+//Begins to save the user information
   onSubmit = (event) => {
     event.preventDefault()
 
@@ -55,6 +60,7 @@ class Signup extends Component {
       isLoading: true
     })
 
+    //display message on the screen
     this.props.messageShow('Signing you up, please wait...')
 
     this.props.register(this.state.user)
@@ -190,4 +196,6 @@ Signup.propTypes = {
   messageHide: PropTypes.func.isRequired
 }
 
+//this allows the component to connect with the redux store
+// { register, messageShow, messageHide } is coming from the actions
 export default connect(null, { register, messageShow, messageHide })(withRouter(Signup))
