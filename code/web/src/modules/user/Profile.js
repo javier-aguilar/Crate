@@ -32,6 +32,7 @@ const Profile = (props) => (
     <Grid style={{ backgroundColor: grey }}>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H3 font="secondary">My profile</H3>
+        
       </GridCell>
     </Grid>
 

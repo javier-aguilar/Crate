@@ -29,6 +29,7 @@ export default function (app) {
   app.get('*', (request, response) => {
 
     // Check for auth
+    // MR - WHEN PAGE LOADS, IF THERE IS A USER LOGGED IN AND SAVED IN LOCAL STORAGE, USER IS SET IN GLOBAL STORE
     if (request.cookies.auth) {
       const auth = JSON.parse(request.cookies.auth)
 
