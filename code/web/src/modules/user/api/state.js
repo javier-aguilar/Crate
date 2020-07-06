@@ -10,6 +10,9 @@ export const userInitialState = {
   details: null
 }
 
+
+//when the app loads, I believe it will grab this state and save it to the redux store.
+
 // State
 export default (state = userInitialState, action) => {
   switch (action.type) {
