@@ -12,6 +12,7 @@ export const users = {
 }
 
 // By ID
+//finding a specific user by ID
 export const user = {
   type: UserType,
   args: {
