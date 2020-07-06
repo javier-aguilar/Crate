@@ -1,4 +1,5 @@
 module.exports = {
+  // up creates a table with attributes and entries
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('users', {
       id: {
@@ -29,7 +30,14 @@ module.exports = {
       }
     });
   },
+
+  //down reverses what what was done in up
+
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users');
   }
 }
+
+//migration is a set of instructions to change the database
+
+
