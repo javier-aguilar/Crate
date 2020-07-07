@@ -47,7 +47,7 @@ export default (state = userInitialState, action) => {
         return {
           ...state,
           isAuthenticated: !isEmpty(action.user),
-          details: action.user
+          details: action.userInfo
         }
 
     default:

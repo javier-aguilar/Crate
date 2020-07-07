@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { updateUser } from './api/actions'
 
 class EditProfile extends Component {
@@ -12,7 +12,8 @@ class EditProfile extends Component {
         user: {
           name: this.props.user.details.name,
           email: this.props.user.details.email,
-          password: this.props.user.details.password,
+          shippingAddress: '',
+          description: ''
         }
       }
   }
@@ -45,4 +46,5 @@ const editProfileState = (state) => {
   }
 }
 
-export default connect(editProfileState)(EditProfile)
+// export default connect(loginState, { login, messageShow, messageHide })(withRouter(Login))
+export default connect(editProfileState, { updateUser } )(withRouter(EditProfile))

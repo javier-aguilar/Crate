@@ -26,11 +26,18 @@ export function setUser(token, user) {
   return { type: SET_USER, user }
 }
 
-export function updateUser(user) {
+export function updateUser(userInfo) {
   return dispatch => {
-    dispatch({
-      type: SET_USER,
-      user
+    return axios.post(routeApi, mutation({
+      operation: 'editProfile',
+      variables: userInfo,
+      fields: ['name', 'email', 'shippingAddress', 'description']
+    }))
+    .then(data => {
+      dispatch({
+        type: UPDATE_USER,
+        userInfo
+      })
     })
   }
 }
