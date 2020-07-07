@@ -20,5 +20,8 @@
   "engines": {
     "node": "12.18.1"
   },
-  "homepage": "https://github.com/javier-aguilar/Crate#readme"
+  "homepage": "https://github.com/javier-aguilar/Crate#readme",
+  "dependencies": {
+    "sequelize": "^6.3.0"
+  }
 }
