@@ -16,10 +16,6 @@ describe("user queries", () => {
     )
   })
 
-  it("is true", () => {
-    expect(true).toBe(true)
-  })
-
   it("can update a user's email address", async () => {
     const response = await request(server)
       .post('/')
