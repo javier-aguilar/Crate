@@ -27,14 +27,13 @@ export function setUser(token, user) {
 }
 
 export function updateUser(userInfo) {
-  debugger
   return dispatch => {
-    return axios.post(routeApi, query({
-      operation: 'editProfile', 
+    return axios.post(routeApi, mutation({
+      operation: 'userUpdate', 
       variables: userInfo,
-      fields: ['name', 'email', 'shippingAddress', 'description']
+      fields: ['name', 'email', 'address', 'description']
     }))
-    .then(data => {
+    .then(userDetails => {
       dispatch({
         type: UPDATE_USER,
         userInfo

@@ -12,6 +12,7 @@ export const userInitialState = {
 
 // State
 export default (state = userInitialState, action) => {
+  debugger
   switch (action.type) {
     case SET_USER:
       return {
@@ -43,12 +44,11 @@ export default (state = userInitialState, action) => {
         details: null
       }
     
-      case UPDATE_USER:
-        return {
-          ...state,
-          isAuthenticated: !isEmpty(action.user),
-          details: action.userInfo
-        }
+    case UPDATE_USER:
+      return {
+        ...state,
+        details: action.userInfo
+      }
 
     default:
       return state

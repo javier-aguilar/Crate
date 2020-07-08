@@ -12,7 +12,7 @@ class EditProfile extends Component {
         user: {
           name: this.props.user.details.name,
           email: this.props.user.details.email,
-          shippingAddress: '',
+          address: '',
           description: ''
         }
       }
@@ -26,7 +26,7 @@ class EditProfile extends Component {
   }
 
   onClick = (event) => {
-    updateUser(this.state.user)
+    this.props.updateUser(this.state.user)
   }
 
 
