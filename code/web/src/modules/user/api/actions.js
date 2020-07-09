@@ -10,6 +10,7 @@ import { routeApi } from '../../../setup/routes'
 export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
+export const UPDATE_USER = 'AUTH/UPDATE_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
 
 // Actions
@@ -25,6 +26,29 @@ export function setUser(token, user) {
   return { type: SET_USER, user }
 }
 
+export function updateUser(userInfo) {
+  return dispatch => {
+    return axios.post(routeApi, mutation({
+      operation: 'userUpdate', 
+      variables: userInfo,
+      fields: ['name', 'email', 'address', 'description', 'id']
+    }))
+    .then(userDetails => {
+      dispatch({
+        type: UPDATE_USER,
+        userInfo
+      })
+      updateLocalStorageWithEdit(userDetails)
+    })
+  }
+}
+
+export function updateLocalStorageWithEdit(userDetails) {
+  const user = JSON.stringify(userDetails.data.data.userUpdate)
+
+  window.localStorage.setItem('user', user)
+}
+
 // Login a user using credentials
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
@@ -36,7 +60,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role}', 'token']
+      fields: ['user {name, id, email, role}', 'token']
     }))
       .then(response => {
         let error = ''
