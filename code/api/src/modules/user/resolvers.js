@@ -88,7 +88,7 @@ export async function update(parentValue, { id, name, email, address, descriptio
       description,
       image
     },
-    { where: { id } }
+    { where: { email } }
   );
-  return getById(parentValue, { id })
+  return models.User.findOne({ where: { email } })
 }
