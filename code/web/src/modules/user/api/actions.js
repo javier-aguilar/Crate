@@ -31,15 +31,22 @@ export function updateUser(userInfo) {
     return axios.post(routeApi, mutation({
       operation: 'userUpdate', 
       variables: userInfo,
-      fields: ['name', 'email', 'address', 'description']
+      fields: ['name', 'email', 'address', 'description', 'id']
     }))
     .then(userDetails => {
       dispatch({
         type: UPDATE_USER,
         userInfo
       })
+      updateLocalStorageWithEdit(userDetails)
     })
   }
+}
+
+export function updateLocalStorageWithEdit(userDetails) {
+  const user = JSON.stringify(userDetails.data.data.userUpdate)
+
+  window.localStorage.setItem('user', user)
 }
 
 // Login a user using credentials
@@ -53,7 +60,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role}', 'token']
+      fields: ['user {name, id, email, role}', 'token']
     }))
       .then(response => {
         let error = ''
