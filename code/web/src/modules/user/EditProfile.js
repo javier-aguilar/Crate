@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { updateUser } from './api/actions'
+import IosContactOutline from 'react-ionicons/lib/IosContactOutline'
+import Button from '../../ui/button'
+import { Grid, GridCell } from '../../ui/grid'
+import { H3 } from '../../ui/typography'
+import { grey, grey2 } from '../../ui/common/colors'
 
 class EditProfile extends Component {
   constructor(props) {
@@ -33,10 +38,24 @@ class EditProfile extends Component {
 
   render() {
     return (
-      <div>
-      <input name="email" onChange={this.onChange} value={this.state.user.email} />
-      <button onClick={this.onClick}>Save</button>
-    </div>
+      <section style={{display: 'flex', justifyContent: 'space-evenly', height: '100vh', alignItems: 'center'}}>
+        <IosContactOutline color="grey" fontSize="200px" style={{margin: '1rem'}}/>
+        <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: '25rem', height: '25rem'}}>
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <label style={{padding: '1rem 0'}}>Email</label>
+            <input name="email" onChange={this.onChange} value={this.state.user.email} style={{paddingLeft: '.5rem', height: '2rem'}}/>
+          </div>
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <label style={{padding: '1rem 0'}}>Shipping Address</label>
+            <input name="address" onChange={this.onChange} value={this.state.user.address} style={{paddingLeft: '.5rem', height: '2rem'}}/>
+          </div>
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <label style={{padding: '1rem 0'}}>Personal Description</label>
+            <textarea name="description" onChange={this.onChange} value={this.state.user.description} style={{paddingLeft: '.5rem', height: '5rem'}}></textarea>
+          </div>
+          <Button theme='secondary' onClick={this.onClick}>Save</Button>
+        </form>
+      </section>
     )
   }
 }
@@ -47,5 +66,4 @@ const editProfileState = (state) => {
   }
 }
 
-// export default connect(loginState, { login, messageShow, messageHide })(withRouter(Login))
 export default connect(editProfileState, { updateUser } )(withRouter(EditProfile))
