@@ -12,7 +12,6 @@ export const userInitialState = {
 
 // State
 export default (state = userInitialState, action) => {
-  debugger
   switch (action.type) {
     case SET_USER:
       return {
