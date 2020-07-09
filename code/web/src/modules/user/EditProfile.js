@@ -10,10 +10,11 @@ class EditProfile extends Component {
         error: '',
         isLoading: false,
         user: {
+          id: this.props.user.details.id,
           name: this.props.user.details.name,
           email: this.props.user.details.email,
           address: '',
-          description: ''
+          description: '',
         }
       }
   }
