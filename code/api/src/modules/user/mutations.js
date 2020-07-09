@@ -71,7 +71,7 @@ export const userUpdate = {
     image: {
       name: 'image',
       type: GraphQLString
-    }
+    },
   },
   resolve: update
 }
