@@ -17,6 +17,26 @@ export async function getByUser(parentValue, {}, { auth }) {
     throw new Error('Please login to view your product history.')
   }
 }
+// Get one userProduct
+export async function get(parentValue, { id }) {
+  return await models.UserProduct.findOne({
+    where: { id },
+    include: [
+      { model: models.User, as: 'user' },
+      { model: models.Product, as: 'product' },
+    ]
+  })
+}
+
+// Get all userProducts
+export async function getAll() {
+  return await models.UserProduct.findAll({
+    include: [
+      { model: models.User, as: 'user' },
+      { model: models.Product, as: 'product' },
+    ]
+  })
+}
 
 // Create userproduct
 export async function create(parentValue, { userId }, { auth }) {
