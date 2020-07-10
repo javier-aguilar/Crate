@@ -38,9 +38,22 @@ class EditProfile extends Component {
 
   render() {
     return (
-      <section style={{display: 'flex', justifyContent: 'space-evenly', height: '100vh', alignItems: 'center'}}>
-        <IosContactOutline color="grey" fontSize="200px" style={{margin: '1rem'}}/>
-        <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: '25rem', height: '25rem'}}>
+      <div>
+        <Grid style={{ backgroundColor: grey }}>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            <H3 font="secondary">Edit Profile</H3>
+          </GridCell>
+        </Grid>
+      <section style={{display: 'flex', justifyContent: 'space-evenly', height: '85vh', alignItems: 'center'}}>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          <IosContactOutline color="grey" fontSize="250px" style={{margin: '1rem'}}/>
+          <button style={{border: 'none', backgroundColor: 'inherit', padding: '1rem 0', textDecoration: 'underline', cursor: 'pointer'}}>Edit Photo</button>
+        </div>
+        <form style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', width: '25rem', height: '30rem'}}>
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <label style={{padding: '1rem 0'}}>Name</label>
+            <input name="name" onChange={this.onChange} value={this.state.user.name} style={{paddingLeft: '.5rem', height: '2rem'}}/>
+          </div>
           <div style={{display: 'flex', flexDirection: 'column'}}>
             <label style={{padding: '1rem 0'}}>Email</label>
             <input name="email" onChange={this.onChange} value={this.state.user.email} style={{paddingLeft: '.5rem', height: '2rem'}}/>
@@ -53,9 +66,10 @@ class EditProfile extends Component {
             <label style={{padding: '1rem 0'}}>Personal Description</label>
             <textarea name="description" onChange={this.onChange} value={this.state.user.description} style={{paddingLeft: '.5rem', height: '5rem'}}></textarea>
           </div>
-          <Button theme='secondary' onClick={this.onClick}>Save</Button>
+          <Button theme='secondary' onClick={this.onClick} style={{margin: '1rem 0', width: '50%', alignSelf: 'center'}}>Save</Button>
         </form>
       </section>
+      </div>
     )
   }
 }
