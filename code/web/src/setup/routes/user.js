@@ -29,6 +29,12 @@ export default {
     auth: true
   },
 
+  products: {
+    path: '/user/products',
+    component: Products,
+    auth: true
+  },
+
   subscriptions: {
     path: '/user/subscriptions',
     component: Subscriptions,
