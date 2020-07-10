@@ -26,9 +26,14 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
-  User.associate = function(models) {
+  User.associate = (models) => {
     User.hasMany(models.Subscription)
-  }
+    User.belongsToMany(models.Product, {
+      through: models.UserProduct,
+      as: 'products',
+      foreignKey: 'userId'
+    });
+  };
 
-  return User
-}
+  return User;
+};
