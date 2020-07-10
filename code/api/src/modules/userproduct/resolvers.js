@@ -1,7 +1,7 @@
 // App Imports
 import models from '../../setup/models'
 
-// Get userProduct by user
+// Get userproduct by user
 export async function getByUser(parentValue, {}, { auth }) {
   if(auth.user && auth.user.id > 0) {
     return await models.UserProduct.findAll({
@@ -18,7 +18,7 @@ export async function getByUser(parentValue, {}, { auth }) {
   }
 }
 
-// Create userProduct
+// Create userproduct
 export async function create(parentValue, { userId }, { auth }) {
   if(auth.user && auth.user.id > 0) {
     return await models.UserProduct.create({

@@ -2,7 +2,7 @@
 
 //UserProduct
 module.exports = function(sequelize, DataTypes) {
-  let UserProduct = sequelize.define('UserProduct', {
+  let UserProduct = sequelize.define('userproducts', {
     userId: {
       type: DataTypes.INTEGER
     },
@@ -14,10 +14,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
-  UserProduct.associate = (models) => {
-    UserProduct.belongsTo(models.Product)
+  UserProduct.associate = function(models) {
     UserProduct.belongsTo(models.User)
-  };
+    UserProduct.belongsTo(models.Product)
+  }
 
   return UserProduct;
 };

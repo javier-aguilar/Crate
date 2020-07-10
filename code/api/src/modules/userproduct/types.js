@@ -7,7 +7,7 @@ import ProductType from '../product/types'
 
 // User type
 const UserProductType = new GraphQLObjectType({
-  name: 'userProduct',
+  name: 'userproduct',
   description: 'UserProduct type',
 
   fields: () => ({

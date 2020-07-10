@@ -5,8 +5,8 @@ import { GraphQLList } from 'graphql'
 import UserProductType from './types'
 import { getAll, getByUser, get } from './resolvers'
 
-// userProduct by user
-export const userProductByUser = {
+// userproduct by user
+export const userproductByUser = {
   type: new GraphQLList(UserProductType),
   resolve: getByUser
 }

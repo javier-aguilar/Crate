@@ -6,7 +6,7 @@ import * as user from '../../modules/user/mutations'
 import * as product from '../../modules/product/mutations'
 import * as crate from '../../modules/crate/mutations'
 import * as subscription from '../../modules/subscription/mutations'
-import * as userProduct from '../../modules/user_products/mutations'
+import * as userproduct from '../../modules/userproduct/mutations'
 
 
 // Mutation
@@ -19,7 +19,7 @@ const mutation = new GraphQLObjectType({
     ...product,
     ...crate,
     ...subscription,
-    ...userProduct
+    ...userproduct
   }
 })
 

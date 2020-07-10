@@ -26,14 +26,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
-  User.associate = (models) => {
+  User.associate = function(models) {
     User.hasMany(models.Subscription)
-    User.belongsToMany(models.Product, {
-      through: models.UserProduct,
-      as: 'products',
-      foreignKey: 'userId'
-    });
-  };
+    User.hasMany(models.UserProduct)
+  }
 
   return User;
 };
