@@ -15,14 +15,7 @@ export const LOGOUT = 'AUTH/LOGOUT'
 
 // Actions
 export function getProducts() {
-  console.log('hi')
-  // return dispatch => {
-  //   return axios.get(routeApi, mutation({
-  //     operation: 'user',
-  //     variables: userInfo.id,
-  //     fields: ['products']
-  //   }))
-  // }
+  // 
 }
 
 // Set a user after login or using localStorage token
