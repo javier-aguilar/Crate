@@ -17,7 +17,7 @@ export const LOGOUT = 'AUTH/LOGOUT'
 export function getProducts() {
   console.log('hi')
   // return dispatch => {
-  //   return axios.get(routeApi, query({
+  //   return axios.get(routeApi, mutation({
   //     operation: 'user',
   //     variables: userInfo.id,
   //     fields: ['products']
