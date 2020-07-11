@@ -19,8 +19,8 @@ class EditProfile extends Component {
           id: this.props.user.details.id,
           name: this.props.user.details.name,
           email: this.props.user.details.email,
-          address: '',
-          description: '',
+          address: this.props.user.details.address,
+          description: this.props.user.details.description
         }
       }
   }
@@ -70,7 +70,9 @@ class EditProfile extends Component {
             <label style={{padding: '1rem 0'}}>Personal Description</label>
             <textarea name="description" onChange={this.onChange} value={this.state.user.description} style={{padding: '.5rem 1rem', height: '5rem', fontSize: '14px'}}></textarea>
           </div>
-          <Button theme='secondary' onClick={this.onClick} style={{margin: '1rem 0', width: '50%', alignSelf: 'center'}}>Save</Button>
+          <Link to='/user/profile'>
+            <Button theme='secondary' onClick={this.onClick} style={{margin: '1rem 0', width: '50%', alignSelf: 'center'}}>Save</Button>
+          </Link>
         </form>
       </section>
       </div>
