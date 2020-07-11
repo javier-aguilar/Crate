@@ -24,10 +24,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
-  // UserProduct.associate = function(models) {
-  //   UserProduct.belongsTo(models.User)
-  //   UserProduct.belongsTo(models.Product)
-  // }
+  UserProduct.associate = function(models) {
+    UserProduct.belongsTo(models.User)
+    UserProduct.belongsTo(models.Product)
+  }
 
   return UserProduct;
 };
