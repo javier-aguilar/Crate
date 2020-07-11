@@ -9,7 +9,6 @@ import { H3, H4 } from '../../ui/typography';
 import { grey, grey2 } from '../../ui/common/colors';
 
 const Products = (props) => {
-  console.log('maddys log', props.user)
   return (
     <div>
       <Helmet>
