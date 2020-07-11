@@ -22,7 +22,9 @@ const Products = (props) => {
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <Button theme="secondary" onClick={props.logout} style={{ margin: '1em'}}>Logout</Button>
       </div>
-      
+      <section>
+        
+      </section>
     </div>
   )
 }
