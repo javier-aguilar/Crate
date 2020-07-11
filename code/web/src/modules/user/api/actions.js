@@ -14,6 +14,16 @@ export const UPDATE_USER = 'AUTH/UPDATE_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
 
 // Actions
+export function getProducts() {
+  console.log('hi')
+  // return dispatch => {
+  //   return axios.get(routeApi, query({
+  //     operation: 'user',
+  //     variables: userInfo.id,
+  //     fields: ['products']
+  //   }))
+  // }
+}
 
 // Set a user after login or using localStorage token
 export function setUser(token, user) {
@@ -29,7 +39,7 @@ export function setUser(token, user) {
 export function updateUser(userInfo) {
   return dispatch => {
     return axios.post(routeApi, mutation({
-      operation: 'userUpdate', 
+      operation: 'userUpdate',
       variables: userInfo,
       fields: ['name', 'email', 'address', 'description', 'id']
     }))
@@ -131,6 +141,8 @@ export function logoutUnsetUserLocalStorageAndCookie() {
   // Remove cookie
   cookie.remove('auth')
 }
+
+
 
 // Get user gender
 export function getGenders() {
