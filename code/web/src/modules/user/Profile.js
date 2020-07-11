@@ -13,7 +13,7 @@ import { grey, grey2 } from '../../ui/common/colors'
 
 // App Imports
 import userRoutes from '../../setup/routes/user'
-import { logout } from './api/actions'
+import { logout, getProducts } from './api/actions'
 
 // Component
 const Profile = (props) => (
