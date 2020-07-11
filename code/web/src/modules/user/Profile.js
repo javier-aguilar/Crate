@@ -13,7 +13,7 @@ import { grey, grey2 } from '../../ui/common/colors'
 
 // App Imports
 import userRoutes from '../../setup/routes/user'
-import { logout } from './api/actions'
+import { logout, getProducts } from './api/actions'
 
 // Component
 const Profile = (props) => (
@@ -49,7 +49,7 @@ const Profile = (props) => (
         </Link>
 
         <Link to={userRoutes.products.path}>
-          <Button theme="primary">Full Product History</Button>
+          <Button theme="primary" onClick={props.getProducts}>Full Product History</Button>
         </Link>
 
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
@@ -71,4 +71,4 @@ function profileState(state) {
   }
 }
 
-export default connect(profileState, { logout })(Profile)
+export default connect(profileState, { logout, getProducts })(Profile)
