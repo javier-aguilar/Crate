@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
   })
 
   Product.associate = function(models) {
-    Product.belongsToMany(models.User, {through: 'UserProduct'})
+    Product.belongsToMany(models.User, {through: models.UserProduct})
   }
 
 return Product;
