@@ -3,6 +3,8 @@ import { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList } from 'graph
 
 import { ProductType } from '../product/types'
 
+import { ProductType } from '../product/types'
+
 // User type
 const UserType = new GraphQLObjectType({
   name: 'user',
