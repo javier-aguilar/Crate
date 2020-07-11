@@ -23,13 +23,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.STRING
-    }
+    },
   })
 
-  User.associate = function(models) {
-    User.hasMany(models.Subscription)
-    User.hasMany(models.UserProduct)
-  }
+  // User.associate = function(models) {
+  //   User.hasMany(models.Subscription)
+  //   User.belongsToMany(models.Product, {through: 'UserProduct'})
+  // }
 
   return User;
 };

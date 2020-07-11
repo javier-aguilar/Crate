@@ -11,10 +11,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
-  Subscription.associate = function(models) {
-    Subscription.belongsTo(models.User)
-    Subscription.belongsTo(models.Crate)
-  }
+  // Subscription.associate = function(models) {
+  //   Subscription.belongsTo(models.User)
+  //   Subscription.belongsTo(models.Crate)
+  // }
 
   return Subscription
 }

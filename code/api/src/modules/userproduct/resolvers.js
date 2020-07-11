@@ -29,3 +29,13 @@ export async function create(parentValue, { userId }, { auth }) {
     throw new Error('Please login to create your product history.')
   }
 }
+
+export async function get(parentValue, { id }) {
+  return await models.UserProduct.findOne({
+    where: { id },
+    include: [
+      { model: models.User, as: 'user' },
+      { model: models.Product, as: 'product' },
+    ]
+  })
+}

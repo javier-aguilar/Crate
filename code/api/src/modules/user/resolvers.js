@@ -65,7 +65,11 @@ export async function getById(parentValue, { id }) {
 
 // Get all
 export async function getAll() {
-  return await models.User.findAll()
+  return await models.User.findAll({ include:
+    [{
+      model: models.UserProduct
+    }]
+  })
 }
 
 // Delete
