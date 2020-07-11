@@ -44,6 +44,10 @@ const Profile = (props) => (
           <Button theme="primary">Subscriptions</Button>
         </Link>
 
+        <Link to={userRoutes.products.path}>
+          <Button theme="primary">Full Product History</Button>
+        </Link>
+
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
       </GridCell>
     </Grid>
