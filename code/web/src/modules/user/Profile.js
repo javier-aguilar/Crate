@@ -36,6 +36,10 @@ const Profile = (props) => (
 
         <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
 
+        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.address}</p>
+
+        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description}</p>
+
         <Link to={userRoutes.editProfile.path}>
           <Button theme="primary">Edit Profile</Button>
         </Link>

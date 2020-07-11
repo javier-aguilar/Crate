@@ -4,8 +4,10 @@
   "description": "![Crate](https://raw.githubusercontent.com/atulmy/atulmy.github.io/master/images/crate/hero-with-link.png)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+
     "start": "cd code && npm start",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
     "heroku-postbuild": "cd code && npm install && npm build && cd api && npm install && cd ../web && npm install"
   },
   "repository": {
