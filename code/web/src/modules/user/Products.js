@@ -9,6 +9,7 @@ import { H3, H4 } from '../../ui/typography';
 import { grey, grey2 } from '../../ui/common/colors';
 
 const Products = (props) => {
+  console.log('maddys log', props.user)
   return (
     <div>
       <Helmet>
@@ -23,7 +24,7 @@ const Products = (props) => {
         <Button theme="secondary" onClick={props.logout} style={{ margin: '1em'}}>Logout</Button>
       </div>
       <section>
-        
+
       </section>
     </div>
   )
