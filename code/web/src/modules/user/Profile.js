@@ -13,7 +13,7 @@ import { grey, grey2 } from '../../ui/common/colors'
 
 // App Imports
 import userRoutes from '../../setup/routes/user'
-import { logout } from './api/actions'
+import { logout, getProducts } from './api/actions'
 
 // Component
 const Profile = (props) => (
@@ -36,12 +36,20 @@ const Profile = (props) => (
 
         <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
 
+        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.address}</p>
+
+        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description}</p>
+
         <Link to={userRoutes.editProfile.path}>
           <Button theme="primary">Edit Profile</Button>
         </Link>
 
         <Link to={userRoutes.subscriptions.path}>
           <Button theme="primary">Subscriptions</Button>
+        </Link>
+
+        <Link to={userRoutes.products.path}>
+          <Button theme="primary" onClick={props.getProducts}>Full Product History</Button>
         </Link>
 
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
@@ -63,4 +71,4 @@ function profileState(state) {
   }
 }
 
-export default connect(profileState, { logout })(Profile)
+export default connect(profileState, { logout, getProducts })(Profile)

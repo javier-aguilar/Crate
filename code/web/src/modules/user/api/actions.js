@@ -14,6 +14,9 @@ export const UPDATE_USER = 'AUTH/UPDATE_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
 
 // Actions
+export function getProducts() {
+  // 
+}
 
 // Set a user after login or using localStorage token
 export function setUser(token, user) {
@@ -29,14 +32,14 @@ export function setUser(token, user) {
 export function updateUser(userInfo) {
   return dispatch => {
     return axios.post(routeApi, mutation({
-      operation: 'userUpdate', 
+      operation: 'userUpdate',
       variables: userInfo,
       fields: ['name', 'email', 'address', 'description', 'id']
     }))
     .then(userDetails => {
       dispatch({
         type: UPDATE_USER,
-        userInfo
+        userDetails
       })
       updateLocalStorageWithEdit(userDetails)
     })
@@ -60,7 +63,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, id, email, role}', 'token']
+      fields: ['user {name, id, email, description, address, role}', 'token']
     }))
       .then(response => {
         let error = ''
@@ -131,6 +134,8 @@ export function logoutUnsetUserLocalStorageAndCookie() {
   // Remove cookie
   cookie.remove('auth')
 }
+
+
 
 // Get user gender
 export function getGenders() {

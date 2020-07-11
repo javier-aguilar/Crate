@@ -1,5 +1,4 @@
 'use strict'
-
 // User
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {
@@ -28,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.hasMany(models.Subscription)
-    User.hasMany(models.UserProduct)
+    User.belongsToMany(models.Product, {through: models.UserProduct, foreignKey: 'userId'})
   }
 
   return User;

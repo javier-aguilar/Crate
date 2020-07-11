@@ -2,7 +2,7 @@
 import { GraphQLBoolean, GraphQLInt } from 'graphql'
 
 // App Imports
-import { UserProductType } from './types'
+import UserProductType from './types'
 import { create } from './resolvers'
 
 // Create
