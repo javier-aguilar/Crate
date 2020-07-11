@@ -18,8 +18,8 @@ class EditProfile extends Component {
           id: this.props.user.details.id,
           name: this.props.user.details.name,
           email: this.props.user.details.email,
-          address: '',
-          description: '',
+          address: this.props.user.details.address,
+          description: this.props.user.details.description
         }
       }
   }
@@ -44,7 +44,7 @@ class EditProfile extends Component {
             <H3 font="secondary">Edit Profile</H3>
           </GridCell>
         </Grid>
-      <section style={{display: 'flex', justifyContent: 'space-evenly', height: '85vh', alignItems: 'center'}}>
+      <section style={{display: 'flex', justifyContent: 'space-evenly', height: '85vh', }}>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <IosContactOutline color="grey" fontSize="250px" style={{margin: '1rem'}}/>
           <button style={{border: 'none', backgroundColor: 'inherit', padding: '1rem 0', textDecoration: 'underline', cursor: 'pointer'}}>Edit Photo</button>
@@ -66,7 +66,9 @@ class EditProfile extends Component {
             <label style={{padding: '1rem 0'}}>Personal Description</label>
             <textarea name="description" onChange={this.onChange} value={this.state.user.description} style={{paddingLeft: '.5rem', height: '5rem'}}></textarea>
           </div>
-          <Button theme='secondary' onClick={this.onClick} style={{margin: '1rem 0', width: '50%', alignSelf: 'center'}}>Save</Button>
+          <Link to='/user/profile'>
+            <Button theme='secondary' onClick={this.onClick} style={{margin: '1rem 0', width: '50%', alignSelf: 'center'}}>Save</Button>
+          </Link>
         </form>
       </section>
       </div>

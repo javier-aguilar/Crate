@@ -36,7 +36,7 @@ export function updateUser(userInfo) {
     .then(userDetails => {
       dispatch({
         type: UPDATE_USER,
-        userInfo
+        userDetails
       })
       updateLocalStorageWithEdit(userDetails)
     })
@@ -60,7 +60,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, id, email, role}', 'token']
+      fields: ['user {name, id, email, description, address, role}', 'token']
     }))
       .then(response => {
         let error = ''
